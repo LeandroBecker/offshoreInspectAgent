@@ -1,4 +1,172 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
+<record>
+  <date>2023-12-19T17:19:28.508692681Z</date>
+  <millis>1703006368508</millis>
+  <nanos>692681</nanos>
+  <sequence>0</sequence>
+  <logger>ariac_env.RosEnv</logger>
+  <level>INFO</level>
+  <class>RosEnv</class>
+  <method>init</method>
+  <thread>1</thread>
+  <message>Environment started, connection with ROS established.</message>
+</record>
+<record>
+  <date>2023-12-19T17:19:28.780244943Z</date>
+  <millis>1703006368780</millis>
+  <nanos>244943</nanos>
+  <sequence>1</sequence>
+  <logger>jason.asSemantics.TransitionSystem.manager</logger>
+  <level>INFO</level>
+  <class>jason.stdlib.println</class>
+  <method>execute</method>
+  <thread>49</thread>
+  <message>Manager agent started</message>
+</record>
+<record>
+  <date>2023-12-19T17:19:28.782080543Z</date>
+  <millis>1703006368782</millis>
+  <nanos>80543</nanos>
+  <sequence>2</sequence>
+  <logger>jason.asSemantics.TransitionSystem.manager</logger>
+  <level>INFO</level>
+  <class>jason.stdlib.println</class>
+  <method>execute</method>
+  <thread>49</thread>
+  <message>Now moving to: station4</message>
+</record>
+<record>
+  <date>2023-12-19T17:20:20.551401734Z</date>
+  <millis>1703006420551</millis>
+  <nanos>401734</nanos>
+  <sequence>3</sequence>
+  <logger>ariac_env.RosEnv</logger>
+  <level>INFO</level>
+  <class>RosEnv$1</class>
+  <method>receive</method>
+  <thread>45</thread>
+  <message>Human reached waypoint	!</message>
+</record>
+<record>
+  <date>2023-12-19T17:20:20.553562255Z</date>
+  <millis>1703006420553</millis>
+  <nanos>562255</nanos>
+  <sequence>4</sequence>
+  <logger>ariac_env.RosEnv</logger>
+  <level>INFO</level>
+  <class>RosEnv$1</class>
+  <method>receive</method>
+  <thread>45</thread>
+  <message>cont: 1</message>
+</record>
+<record>
+  <date>2023-12-19T17:20:21.066585546Z</date>
+  <millis>1703006421066</millis>
+  <nanos>585546</nanos>
+  <sequence>5</sequence>
+  <logger>jason.asSemantics.TransitionSystem.manager</logger>
+  <level>INFO</level>
+  <class>jason.stdlib.println</class>
+  <method>execute</method>
+  <thread>49</thread>
+  <message>Passed over station4</message>
+</record>
+<record>
+  <date>2023-12-19T17:20:21.069678370Z</date>
+  <millis>1703006421069</millis>
+  <nanos>678370</nanos>
+  <sequence>6</sequence>
+  <logger>jason.asSemantics.TransitionSystem.manager</logger>
+  <level>INFO</level>
+  <class>jason.stdlib.println</class>
+  <method>execute</method>
+  <thread>49</thread>
+  <message>Now moving to: station3</message>
+</record>
+<record>
+  <date>2023-12-19T17:20:48.404210971Z</date>
+  <millis>1703006448404</millis>
+  <nanos>210971</nanos>
+  <sequence>7</sequence>
+  <logger>ariac_env.RosEnv</logger>
+  <level>INFO</level>
+  <class>RosEnv$1</class>
+  <method>receive</method>
+  <thread>45</thread>
+  <message>Human reached waypoint	!</message>
+</record>
+<record>
+  <date>2023-12-19T17:20:48.405930926Z</date>
+  <millis>1703006448405</millis>
+  <nanos>930926</nanos>
+  <sequence>8</sequence>
+  <logger>ariac_env.RosEnv</logger>
+  <level>INFO</level>
+  <class>RosEnv$1</class>
+  <method>receive</method>
+  <thread>45</thread>
+  <message>cont: 2</message>
+</record>
+<record>
+  <date>2023-12-19T17:20:49.186070984Z</date>
+  <millis>1703006449186</millis>
+  <nanos>70984</nanos>
+  <sequence>9</sequence>
+  <logger>jason.asSemantics.TransitionSystem.manager</logger>
+  <level>INFO</level>
+  <class>jason.stdlib.println</class>
+  <method>execute</method>
+  <thread>49</thread>
+  <message>Passed over station3</message>
+</record>
+<record>
+  <date>2023-12-19T17:20:49.187909618Z</date>
+  <millis>1703006449187</millis>
+  <nanos>909618</nanos>
+  <sequence>10</sequence>
+  <logger>jason.asSemantics.TransitionSystem.manager</logger>
+  <level>INFO</level>
+  <class>jason.stdlib.println</class>
+  <method>execute</method>
+  <thread>49</thread>
+  <message>Now moving to: station1</message>
+</record>
+<record>
+  <date>2023-12-19T17:21:30.508739565Z</date>
+  <millis>1703006490508</millis>
+  <nanos>739565</nanos>
+  <sequence>11</sequence>
+  <logger>ariac_env.RosEnv</logger>
+  <level>INFO</level>
+  <class>RosEnv$1</class>
+  <method>receive</method>
+  <thread>52</thread>
+  <message>Human reached waypoint	!</message>
+</record>
+<record>
+  <date>2023-12-19T17:21:30.510225970Z</date>
+  <millis>1703006490510</millis>
+  <nanos>225970</nanos>
+  <sequence>12</sequence>
+  <logger>ariac_env.RosEnv</logger>
+  <level>INFO</level>
+  <class>RosEnv$1</class>
+  <method>receive</method>
+  <thread>52</thread>
+  <message>cont: 3</message>
+</record>
+<record>
+  <date>2023-12-19T17:21:30.902139774Z</date>
+  <millis>1703006490902</millis>
+  <nanos>139774</nanos>
+  <sequence>13</sequence>
+  <logger>jason.asSemantics.TransitionSystem.manager</logger>
+  <level>INFO</level>
+  <class>jason.stdlib.println</class>
+  <method>execute</method>
+  <thread>49</thread>
+  <message>Work completed! Finished at station1</message>
+</record>
 </log>

@@ -6,7 +6,6 @@ MAS hello_ros {
 
 	agents:
 		manager; 
-//			  [beliefs="indifferent"];
 
 	aslSourcePath:
 		"src/asl";

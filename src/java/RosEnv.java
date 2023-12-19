@@ -35,7 +35,7 @@ public class RosEnv extends Environment {
 	double minAgvDist = 0.85;
 	boolean isAproximating = false;
 	
-	boolean simulationStarted = false; 	
+	// boolean simulationStarted = false; 	
     
     RosBridge bridge = new RosBridge();
 
@@ -46,7 +46,7 @@ public class RosEnv extends Environment {
 		bridge.connect("ws://localhost:9090", true);
 		logger.info("Environment started, connection with ROS established.");	
 		
-		/* Subscribe for calculating the distance between the Gantry and the human */
+		/* Subscribe for calculating the distance between the Gantry and the human /
 		bridge.subscribe(SubscriptionRequestMsg.generate("/ariac_human/state") 
 				.setType("ariac_msgs/msg/HumanState") 
 				.setThrottleRate(1)
@@ -74,19 +74,19 @@ public class RosEnv extends Environment {
 
 					if ((distance_robotHuman < safe_distanceRH*1.75) && 
 						(timeNow-lastHumanState_MsgT > 20000) && (isAproximating == true)){
-						//clearPercepts("human");
+						//clearPercepts("manager");
 						lastHumanState_MsgT=timeNow;
 						logger.info("SAFE["+ safe_distanceRH +"] I see the Gantry robot in " + distance_robotHuman +" meters: gantry_detected");
 						Literal gDetectedLit = new LiteralImpl("gantry_detected"); 
 						gDetectedLit.addTerm(new NumberTermImpl(ctrDt++)); 
-						if(simulationStarted==true)
-							addPercept("human",gDetectedLit); 
+						//if(simulationStarted==true)
+							addPercept("manager",gDetectedLit); 
 					}
 				}
 			} 
-		); // END bridge.subscribe(..."/ariac_human/state") 
+		);*/ // END bridge.subscribe(..."/ariac_human/state") 
 	
-		/* Subscriber for getting the information that the Gantry has been disabled */
+		/* Subscriber for getting the information that the Gantry has been disabled /
 		bridge.subscribe(SubscriptionRequestMsg.generate("/ariac_human/unsafe_distance") 
 				.setType("std_msgs/Bool")
 				.setThrottleRate(1)
@@ -98,26 +98,26 @@ public class RosEnv extends Environment {
 					MessageUnpacker<PrimitiveMsg<Boolean>> unpacker = new MessageUnpacker<PrimitiveMsg<Boolean>>(PrimitiveMsg.class);
 					PrimitiveMsg<Boolean> msg = unpacker.unpackRosMessage(data);
 					if((simulationStarted==true) && (timeNow-lastUnsafeD_MsgT > 10000)){ 
-						//clearPercepts("human");
+						//clearPercepts("manager");
 						lastUnsafeD_MsgT = timeNow;
 
 						if(msg.data){ 
 							logger.info("Gantry has been disabled!");
 							Literal gUnsafeLit = new LiteralImpl("gantry_disabled"); 
 							gUnsafeLit.addTerm(new NumberTermImpl(ctrUnsf++)); 
-							addPercept("human",gUnsafeLit); 
+							addPercept("manager",gUnsafeLit); 
 						}
 						else{ 
 							logger.info("UAV danger!");
 							Literal gUnsafeLit = new LiteralImpl("agv_danger"); 
 							gUnsafeLit.addTerm(new NumberTermImpl(ctrUnsf++)); 
-							addPercept("human",gUnsafeLit); 
+							addPercept("manager",gUnsafeLit); 
 						}
 					}
 					
 				}
 			}
-		); // END bridge.subscribe(..."/ariac_human/unsafe_distance") 
+		); */ // END bridge.subscribe(..."/ariac_human/unsafe_distance") 
 	
 		/* Subscriber for move_base result */		
 		bridge.subscribe(SubscriptionRequestMsg.generate("/ariac_human/position_reached")
@@ -128,18 +128,18 @@ public class RosEnv extends Environment {
 				public void receive(JsonNode data, String stringRep) {
 					MessageUnpacker<PrimitiveMsg<Boolean>> unpacker = new MessageUnpacker<PrimitiveMsg<Boolean>>(PrimitiveMsg.class);
 					PrimitiveMsg<Boolean> msg = unpacker.unpackRosMessage(data);
-					//clearPercepts("human");
+					clearPercepts("manager");
 					logger.info("Human reached waypoint	!");
 					Literal movebase_result = new LiteralImpl("work_completed"); 
 					movebase_result.addTerm(new NumberTermImpl(cont++)); 
 					logger.info("cont: "+cont);
-					if(simulationStarted==true)
-							addPercept("human", movebase_result);
+					//if(simulationStarted==true)
+					addPercept("manager", movebase_result);
 				}
 			}
 	    ); // END bridge.subscribe(..."/ariac_human/position_reached")
 		
-		/* Subscriber for getting the START message */
+		/* Subscriber for getting the START message /
 		bridge.subscribe(SubscriptionRequestMsg.generate("/ariac/start_human") 
 				.setType("std_msgs/Bool")
 				.setThrottleRate(1)
@@ -150,14 +150,14 @@ public class RosEnv extends Environment {
 					PrimitiveMsg<Boolean> msg = unpacker.unpackRosMessage(data);
 					//logger.info("Simulation will start!");
 					if (msg.data){
-						//clearPercepts("human");
+						//clearPercepts("manager");
 						logger.info("Simulation started!");
-						addPercept("human",Literal.parseLiteral("human_start"));
+						addPercept("manager",Literal.parseLiteral("human_start"));
 						simulationStarted = true; 
 					}					
 				}
 			}
-		); // END bridge.subscribe(..."/ariac/start_human")
+		);*/ // END bridge.subscribe(..."/ariac/start_human")
 	} // END init()
 
 	// Calculate distance from AGV and Human
